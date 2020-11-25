@@ -1,0 +1,16 @@
+[user]
+  name = wuxianjie
+  email = wuxianjiezh@gmail.com
+[diff]
+  external = git_diff_wrapper
+[pager]
+  diff =
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
+[core]
+  editor = vim
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

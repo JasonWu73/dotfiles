@@ -1,0 +1,156 @@
+#!/usr/bin/env zsh
+
+# 自定义终端命令提示符
+
+prompt_git() {
+  signal=""
+  branch_name=""
+
+  # 检查当前目录是否为 Git repository
+  if [[ $(
+    git rev-parse --is-inside-work-tree &>/dev/null
+    echo "${?}"
+  ) == "0" ]]; then
+
+    # 检查当前目录是不是 .git
+    if [[ $(git rev-parse --is-inside-git-dir 2>/dev/null) == "false" ]]; then
+
+      # 刷新最新的索引
+      git update-index --really-refresh -q &>/dev/null
+
+      # 检查索引中是否存在未提交的更改
+      if [[ ! $(git diff --quiet --ignore-submodules --cached) ]]; then
+        signal+='+'
+      fi
+
+      # 检查索引中是否存在未 unstaged 的更改
+      if [[ ! $(git diff-files --quiet --ignore-submodules --) ]]; then
+        signal+='!'
+      fi
+
+      # 检查索引中是否存在未 untracked 的更改
+      if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
+        signal+='?'
+      fi
+
+      # 检查文件是否 stashed
+      if [[ $(git rev-parse --verify refs/stash &>/dev/null) ]]; then
+        signal+='$'
+      fi
+
+    fi
+
+    # 获取分支名
+    branch_name="$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+      git rev-parse --short HEAD 2>/dev/null ||
+      echo '(unknown)')"
+
+    [[ -n "${signal}" ]] && signal=" [${signal}]"
+
+    echo -e "${1}%F{010}${branch_name}${signal}%f"
+  else
+    return
+  fi
+}
+
+# 以 root 身份登录时突出显示用户名
+if [[ "${USER}" == "root" ]]; then
+  username="%F{009}%n%f"
+  prompt_sign='#'
+else
+  username="%F{208}%n%f"
+  prompt_sign='$'
+fi
+
+# 通过 SSH 连接时突出显示主机名
+if [[ "${SSH_TTY}" ]]; then
+  hostname="%F{009}%m%f"
+else
+  hostname="%F{226}%m%f"
+fi
+
+# 默认交互式提示符
+PS1="${username} "
+PS1+="%F{015}at%f "
+PS1+="${hostname} "
+PS1+="%F{015}in%f "
+PS1+="%F{014}%~%f "
+PS1+="$(prompt_git '%F{015}on%f ')"
+PS1+="
+"
+PS1+="%F{015}${prompt_sign}%f "
+export PS1
+
+# 延续交互式提示符
+PS2="%F{226}→%f "
+export PS2
+
+# 自动补全配置
+
+# 启用包括 ssh/scp/sftp 主机名的自动补全
+autoload -Uz compinit
+compinit
+
+# 敲击两下 tab 键激活选择菜单
+zstyle ':completion:*' menu select
+
+# 别名自动补全
+setopt COMPLETE_ALIASES
+
+# 自动补全忽略字母大小写
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# 加载 zsh/complist 模块，用于对插件列表的补全
+zmodload zsh/complist
+
+# 无需 . 就可以显示隐藏文件及文件夹
+setopt GLOBDOTS
+
+# 绑定 Vi 导航键
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# 配置命令行 Vi 编辑模式
+
+# 设置 zsh 的行编辑器（Zsh Line Editor，ZLE）使用 vi 模式
+bindkey -v
+# 消除 vi 和 zsh 中 esc 的延迟
+export KEYTIMEOUT=1
+# 修复 backspace 键在切换 vi 模式后无法删除字符的 bug
+bindkey '^?' backward-delete-char
+
+# 在不同的 vi 模式下改变光标形状
+cursor_mode() {
+  cursor_block='\e[2 q'
+  cursor_beam='\e[6 q'
+
+  function zle-keymap-select() {
+    if [[ ${KEYMAP} == vicmd ]] ||
+      [[ $1 == 'block' ]]; then
+      echo -ne "$cursor_block"
+    elif [[ ${KEYMAP} == main ]] ||
+      [[ ${KEYMAP} == viins ]] ||
+      [[ ${KEYMAP} == '' ]] ||
+      [[ $1 == 'beam' ]]; then
+      echo -ne "$cursor_beam"
+    fi
+  }
+
+  zle-line-init() {
+    echo -ne "$cursor_beam"
+  }
+
+  zle -N zle-keymap-select
+  zle -N zle-line-init
+}
+
+cursor_mode
+
+# 在 vi 编辑器中编辑命令行
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
+# 绑定快捷键 ctrl-v 进入 vi 编辑器，即多行编辑命令行
+bindkey '^v' edit-command-line

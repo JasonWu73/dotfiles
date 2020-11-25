@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# 将 vimdiff 用作 git diff
+# 将 git_diff_wrapper 放在 $PATH
+vimdiff "$2" "$5"
