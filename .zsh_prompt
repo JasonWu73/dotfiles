@@ -2,60 +2,28 @@
 
 # 自定义终端命令提示符
 
-prompt_git() {
-  signal=""
-  branch_name=""
+# Git 版本控制信息，变量 `vcs_info_msg_0_`
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+# 格式化通用输出
+zstyle ':vcs_info:git:*' formats '%F{015}on%f %F{046}%b%f'
+# 格式化 merge 或 rebase 时输出
+zstyle ':vcs_info:git*' actionformats '%F{015}on [%f%F{046}%b%f%F{015}|%f%F{196}%a%f%F{015}]%f'
 
-  # 检查当前目录是否为 Git repository
-  if [[ $(
-    git rev-parse --is-inside-work-tree &>/dev/null
-    echo "${?}"
-  ) == "0" ]]; then
+# 挂钩函数，在每次终端提示前执行
+precmd() {
+  vcs_info
 
-    # 检查当前目录是不是 .git
-    if [[ $(git rev-parse --is-inside-git-dir 2>/dev/null) == "false" ]]; then
-
-      # 刷新最新的索引
-      git update-index --really-refresh -q &>/dev/null
-
-      # 检查索引中是否存在未提交的更改
-      if [[ ! $(git diff --quiet --ignore-submodules --cached) ]]; then
-        signal+='+'
-      fi
-
-      # 检查索引中是否存在未 unstaged 的更改
-      if [[ ! $(git diff-files --quiet --ignore-submodules --) ]]; then
-        signal+='!'
-      fi
-
-      # 检查索引中是否存在未 untracked 的更改
-      if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
-        signal+='?'
-      fi
-
-      # 检查文件是否 stashed
-      if [[ $(git rev-parse --verify refs/stash &>/dev/null) ]]; then
-        signal+='$'
-      fi
-
-    fi
-
-    # 获取分支名
-    branch_name="$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
-      git rev-parse --short HEAD 2>/dev/null ||
-      echo '(unknown)')"
-
-    [[ -n "${signal}" ]] && signal=" [${signal}]"
-
-    echo -e "${1}%F{010}${branch_name}${signal}%f"
-  else
-    return
-  fi
+  # 设置终端窗口标题
+  print -n '\e]2;吴仙杰 🍖\a'
 }
+
+# 允许在终端提示符中替换内容
+setopt prompt_subst
 
 # 以 root 身份登录时突出显示用户名
 if [[ "${USER}" == "root" ]]; then
-  username="%F{009}%n%f"
+  username="%F{196}%n%f"
   prompt_sign='#'
 else
   username="%F{208}%n%f"
@@ -64,21 +32,16 @@ fi
 
 # 通过 SSH 连接时突出显示主机名
 if [[ "${SSH_TTY}" ]]; then
-  hostname="%F{009}%m%f"
+  hostname="%F{196}%m%f"
 else
   hostname="%F{226}%m%f"
 fi
 
 # 默认交互式提示符
-PS1="${username} "
-PS1+="%F{015}at%f "
-PS1+="${hostname} "
-PS1+="%F{015}in%f "
-PS1+="%F{014}%~%f "
-PS1+="$(prompt_git '%F{015}on%f ')"
-PS1+="
-"
-PS1+="%F{015}${prompt_sign}%f "
+# 注意：这里必须是单引号
+# shellcheck disable=SC2154
+PS1='${username} %F{015}at%f ${hostname} %F{015}in %F{014}%~%f ${vcs_info_msg_0_}
+%F{015}${prompt_sign}%f '
 export PS1
 
 # 延续交互式提示符
