@@ -1,5 +1,3 @@
-" IdeaVim 配置
-
 " 读取 vim 配置
 source ~/.vimrc
 

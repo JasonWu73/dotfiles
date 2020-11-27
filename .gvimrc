@@ -1,5 +1,3 @@
-" MacVim 配置
-
 " 配色方案
 colorscheme dracula
 

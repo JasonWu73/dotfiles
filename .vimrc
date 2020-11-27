@@ -10,7 +10,6 @@ let &t_SI.="\e[5 q" " 开始插入模式（SI = INSERT mode）
 let &t_SR.="\e[3 q" " 开始替换模式（SR = REPLACE mode）
 let &t_EI.="\e[1 q" " 结束插入或替换模式（EI = NORMAL mode (ELSE)）
 
-
 " 使 MacVim 中的 yy、D、P 都可以和剪贴板一起工作
 set clipboard=unnamed
 
@@ -20,12 +19,12 @@ syntax on
 " 设置折叠方式为手工定义
 set fdm=manual
 
-
 " 关闭错误铃声
 set belloff=all
 
-
-" 快捷键设置
+"##
+"# 快捷键设置
+"##
 
 " 映射 `,` 为 `<leader>`
 let mapleader = ","
@@ -58,7 +57,6 @@ nnoremap <C-s> :w<CR>
 " 使用 `ctrl-q` 退出
 nnoremap <C-q> :q<CR>
 
-
 " 缩进时不丢失选区
 vnoremap < <gv
 vnoremap > >gv
@@ -69,22 +67,18 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
-
 " 显示行号
 set nu " 绝对行号
 set rnu " 相对行号
-
 
 " 字符编码设置，自动保存为 UTF-8，打开 GBK 文件无需手动切换字符编码
 set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 
-
 " 搜索高亮设置
 set hlsearch " 高亮显示匹配
 set incsearch " 实时查找预览
-
 
 " 不与 vi 兼容（采用 vim 自己的操作命令）
 set nocompatible
@@ -101,8 +95,9 @@ set nowrap
 " 替换 `:set list` 显示的占位符
 set listchars=tab:→\ ,eol:↲
 
-
-" tab 与 空格
+"##
+"# tab 与 空格
+"##
 
 " 自动缩进设置，将一个制表符自动转换两个空格
 set sw=2 ts=2 sts=2 expandtab
@@ -112,12 +107,12 @@ set sw=2 ts=2 sts=2 expandtab
 "   - `:set ft`
 autocmd Filetype text setlocal sw=4 ts=4 sts=4 noexpandtab
 
-
 " 垂直分屏打开新文件时，显示在当前窗口的右侧
 set splitright
 
-
-" 内置插件 - netrw
+"##
+"# 内置插件 - netrw
+"##
 
 " 关闭顶部 info banner，敲击 `I` 切换
 let g:netrw_banner=0
@@ -136,8 +131,9 @@ let g:netrw_winsize=25
 let g:netrw_preview=1 " 设置文件预览窗口为垂直分屏窗口，敲击 `p`
 let g:netrw_browse_split=4 " 行为类似 `p`，即打开之前的窗口
 
-
-" Vim 插件
+"##
+"# Vim 插件
+"##
 
 " 插件管理器 vim-plug
 "   - `:PlugInstall`：安装插件
@@ -171,7 +167,9 @@ Plug 'vim-airline/vim-airline-themes'
 " 自动封口括号等
 Plug 'jiangmiao/auto-pairs'
 
-" 模糊搜索
+"##
+"# 模糊搜索
+"##
 
 " `fzf` 命令工具
 " `brew install fzf`
@@ -209,16 +207,14 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 " 主题
-colorscheme dracula
+colorscheme macvim
 
-
-" vim-rooter 配置
-
-" 识别为根目录的目录特征
+" vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
 
-
-" fzf 配置
+"##
+"# fzf 配置
+"##
 
 " 忽略 `.gitignore` 中指定的文件
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -238,8 +234,9 @@ nnoremap <C-e> :Buffers<CR>
 " 使用 `<leader>c` 搜索历史命令
 nnoremap <leader>c :History:<CR>
 
-
-" COC 配置
+"##
+"# COC 配置
+"##
 
 " 自动安装缺少的扩展
 let g:coc_global_extensions = ['coc-marketplace', 'coc-markdownlint', 'coc-json', 'coc-emmet', 'coc-html', 'coc-css', 'coc-tsserver']
@@ -391,8 +388,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " 使用 `<space>p` 再次执行最近的 CoCList 命令
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-
-" vim-instant-markdown 配置
+"##
+"# vim-instant-markdown 配置
+"##
 
 " 选择自定义端口，而不是默认端口 8090
 let g:instant_markdown_port = 8888

@@ -7,8 +7,9 @@ for file in ~/.{zsh_prompt,zsh_aliases}; do
 done
 unset file
 
-
+##
 # 使用 Zsh 插件
+##
 
 # 命令行命令自动补全插件
 # `git clone https://github.com/zsh-users/zsh-autosuggestions`
@@ -24,8 +25,9 @@ if [[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-
-# 模糊搜索
+##
+# 模糊搜索命令行工具
+##
 
 # fzf
 # `brew install fzf`
@@ -47,7 +49,8 @@ fi
 # Universal Ctags
 # `brew install --HEAD universal-ctags/universal-ctags/universal-ctags`
 
-# 自动生成的代码
+# 执行 `$(brew --prefix)/opt/fzf/install` 时自动生成的代码
+# 该行需要放置在后续 fzf 配置之前
 # shellcheck disable=SC1090
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -63,14 +66,26 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # 为 `fzf` 配置默认选项
-# 带有语法高亮（Bat）的文件内容预览窗口
-export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
-
+##
 # 设置环境变量
+##
 
 # 中科大源 - Homebrew 预编译二进制软件包
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/apache-maven/bin:${PATH}"
+# Switch between different JDK versions
+jdk() {
+  version=$1
+  # shellcheck disable=SC2155
+  export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+  # java -version
+}
+jdk 1.8
+# jdk 9
+# jdk 11
+# jdk 13
+
+PATH="${JAVA_HOME}/bin:/usr/local/apache-maven/bin:${PATH}"
 export PATH

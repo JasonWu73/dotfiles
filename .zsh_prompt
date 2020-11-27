@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
-# 自定义终端命令提示符
+##
+# 终端命令提示符
+##
 
 # Git 版本控制信息，变量 `vcs_info_msg_0_`
 autoload -Uz vcs_info
@@ -48,7 +50,9 @@ export PS1
 PS2="%F{226}→%f "
 export PS2
 
+##
 # 自动补全配置
+##
 
 # 启用包括 ssh/scp/sftp 主机名的自动补全
 autoload -Uz compinit
@@ -75,7 +79,9 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+##
 # 配置命令行 Vi 编辑模式
+##
 
 # 设置 zsh 的行编辑器（Zsh Line Editor，ZLE）使用 vi 模式
 bindkey -v
@@ -108,7 +114,6 @@ cursor_mode() {
   zle -N zle-keymap-select
   zle -N zle-line-init
 }
-
 cursor_mode
 
 # 在 vi 编辑器中编辑命令行

@@ -1,16 +1,18 @@
 #!/usr/bin/env zsh
 
+##
 # 别名设置
+##
 
 # 常用别名
 alias clean='/bin/rm -rf ~/.Trash/*; /bin/rm -rf ~/Downloads/*'
 alias wipe_py_env='/bin/rm -rf ~/py_env; python3 -m venv ~/py_env'
 
-# 始终启用带颜色的 ls 输出
+# 始终启用带颜色的 `ls` 输出
 alias ls="ls -GF"
 alias la="ls -haltT"
 
-# 始终启用带颜色的 grep 输出
+# 始终启用带颜色的 `grep` 输出
 alias grep='grep --color=auto'
 
 # 始终用过交互式拷贝文件，并显示详细信息
@@ -19,17 +21,16 @@ alias cp="cp -vi"
 # 始终用过交互式移动文件，并显示详细信息
 alias mv="mv -vi"
 
-# 使用 rmtrash 命令行工具替代常规的 rm（仍可通过 /bin/rm 使用）
+# 使用 `rmtrash` 命令行工具替代常规的 `rm`（仍可通过 `/bin/rm` 使用）
 alias rm="rmtrash"
 
 # 使用 MacVim 代替内置的 Vim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vimdiff='vim -d'
 
-
-# 将 vimdiff 用作 git diff
-#   1. 将 git_diff_wrapper 放在 $PATH
-#   2. 通过 git diff --no-ext-diff 使用原始的 git diff
+# 将 `vimdiff` 用作 `git diff`
+#   1. 将 `git_diff_wrapper` 放在 `$PATH`
+#   2. 通过 `git diff --no-ext-diff` 使用原始的 `git diff`
 git_diff() {
   git diff --no-ext-diff -w "$@" | vim -R –
 }
