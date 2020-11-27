@@ -35,9 +35,6 @@ nnoremap <C-k>    :resize +2<CR>
 nnoremap <C-h>    :vertical resize -2<CR>
 nnoremap <C-l>    :vertical resize +2<CR>
 
-" 在输入模式中快速输入 `jj` 即可实现 `esc`
-inoremap jj <Esc>
-
 " 使用 `ctrl-c` 单词大小写切换
 inoremap <C-c> <Esc>gUw
 nnoremap <C-c> guw<Esc>
