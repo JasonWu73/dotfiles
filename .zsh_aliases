@@ -9,14 +9,14 @@ alias clean='/bin/rm -rf ~/.Trash/*; /bin/rm -rf ~/Downloads/*'
 alias wipe_py_env='/bin/rm -rf ~/py_env; python3 -m venv ~/py_env'
 
 # 始终启用带颜色的 `ls` 输出
-alias ls="ls -GF"
+alias ls="ls -tGF"
 alias la="ls -haltT"
 
 # 始终启用带颜色的 `grep` 输出
 alias grep='grep --color=auto'
 
-# 始终用过交互式拷贝文件，并显示详细信息
-alias cp="cp -vi"
+# 始终用过交互式递归拷贝文件，并显示详细信息
+alias cp="cp -vir"
 
 # 始终用过交互式移动文件，并显示详细信息
 alias mv="mv -vi"
