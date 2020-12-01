@@ -50,7 +50,7 @@ fi
 # PS1='${username} %F{015}at%f ${hostname} %F{015}in %F{014}%~%f ${vcs_info_msg_0_}
 # %F{015}${prompt_sign}%f '
 # light
-PS1='${username} %F{000}at%f ${hostname} %F{000}in %F{033}%~%f ${vcs_info_msg_0_}
+PS1='%B${username}%b %F{000}at%f %B${hostname}%b %F{000}in %F{033}%~%f ${vcs_info_msg_0_}
 %F{000}${prompt_sign}%f '
 export PS1
 
@@ -99,30 +99,24 @@ export KEYTIMEOUT=1
 bindkey '^?' backward-delete-char
 
 # 在不同的 vi 模式下改变光标形状
-cursor_mode() {
-  cursor_block='\e[2 q'
-  cursor_beam='\e[6 q'
-
-  function zle-keymap-select() {
-    if [[ ${KEYMAP} == vicmd ]] ||
-      [[ $1 == 'block' ]]; then
-      echo -ne "$cursor_block"
-    elif [[ ${KEYMAP} == main ]] ||
-      [[ ${KEYMAP} == viins ]] ||
-      [[ ${KEYMAP} == '' ]] ||
-      [[ $1 == 'beam' ]]; then
-      echo -ne "$cursor_beam"
-    fi
-  }
-
-  zle-line-init() {
-    echo -ne "$cursor_beam"
-  }
-
-  zle -N zle-keymap-select
-  zle -N zle-line-init
+vi_mode_cursor() {
+  case $KEYMAP in
+  vicmd) print -n '\033[1 q' ;; # block cursor
+  viins | main) print -n '\033[5 q' ;; # line cursor
+  esac
 }
-cursor_mode
+zle-keymap-select() {
+  vi_mode_cursor
+}
+zle-line-init() {
+  vi_mode_cursor
+}
+zle-line-finish() {
+  vi_mode_cursor
+}
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
 
 # 在 vi 编辑器中编辑命令行
 autoload -Uz edit-command-line
