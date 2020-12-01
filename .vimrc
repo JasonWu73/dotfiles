@@ -154,9 +154,6 @@ call plug#begin('~/.vim/plugged')
 " EditorConfig plugin for Vim
 Plug 'editorconfig/editorconfig-vim'
 
-" Dracula 主题
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 " 状态栏
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -203,8 +200,8 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " 初始化插件系统
 call plug#end()
 
-" 主题
-colorscheme macvim
+" vim-airline theme
+let g:airline_theme='light'
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
