@@ -9,7 +9,6 @@ brew install ripgrep
 brew install fd
 brew install the_silver_searcher
 brew install bat
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install python
 brew install node
 brew install yarn
