@@ -20,3 +20,4 @@ brew cask install adoptopenjdk11
 brew cask install google-chrome
 brew cask install firefox
 brew cask install macvim
+brew cask install odlp/bluesnooze/bluesnooze
