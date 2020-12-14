@@ -47,7 +47,7 @@ fi
 # 注意：这里必须是单引号
 # shellcheck disable=SC2154
 # dark
- PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{7}%~%f ${vcs_info_msg_0_}
+ PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{4}%~%f ${vcs_info_msg_0_}
  %F{7}${prompt_sign}%f '
 # light
 #PS1='${username} %F{000}at%f ${hostname} %F{000}in %F{039}%~%f ${vcs_info_msg_0_}
