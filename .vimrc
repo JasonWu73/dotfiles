@@ -185,6 +185,9 @@ Plug 'junegunn/fzf.vim'
 " 自动将 vim 的工作目录切换到项目根目录
 Plug 'airblade/vim-rooter'
 
+" vim-material
+Plug 'hzchirs/vim-material'
+
 " 语法支持
 Plug 'sheerun/vim-polyglot'
 
@@ -199,9 +202,6 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " 初始化插件系统
 call plug#end()
-
-" vim-airline theme
-let g:airline_theme='light'
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
