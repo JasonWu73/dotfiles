@@ -111,8 +111,8 @@ jdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
   # java -version
 }
-#jdk 1.8
-jdk 11
+jdk 1.8
+#jdk 11
 
 PATH="${JAVA_HOME}/bin:/usr/local/apache-maven/bin:${PATH}"
 export PATH
