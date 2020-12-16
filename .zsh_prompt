@@ -8,11 +8,11 @@
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 # 格式化通用输出
- zstyle ':vcs_info:git:*' formats '%F{7}on%f %F{046}%b%f' # dark
-#zstyle ':vcs_info:git:*' formats '%F{000}on%f %F{034}%b%f' # light
+# zstyle ':vcs_info:git:*' formats '%F{7}on%f %F{2}%b%f' # dark
+zstyle ':vcs_info:git:*' formats '%F{0}on%f %F{2}%b%f' # light
 # 格式化 merge 或 rebase 时输出
- zstyle ':vcs_info:git*' actionformats '%F{7}on [%f%F{046}%b%f%F{7}|%f%F{196}%a%f%F{7}]%f' # dark
-#zstyle ':vcs_info:git*' actionformats '%F{000}on [%f%F{034}%b%f%F{000}|%f%F{196}%a%f%F{000}]%f' # light
+# zstyle ':vcs_info:git*' actionformats '%F{7}on [%f%F{2}%b%f%F{7}|%f%F{1}%a%f%F{7}]%f' # dark
+zstyle ':vcs_info:git*' actionformats '%F{0}on [%f%F{2}%b%f%F{0}|%f%F{1}%a%f%F{0}]%f' # light
 
 # 挂钩函数，在每次终端提示前执行
 precmd() {
@@ -27,35 +27,36 @@ setopt prompt_subst
 
 # 以 root 身份登录时突出显示用户名
 if [[ "${USER}" == "root" ]]; then
-  username="%F{196}%n%f"
+  username="%F{1}%n%f"
   prompt_sign='#'
 else
-   username="%F{208}%n%f" # dark
-#  username="%F{166}%n%f" # right
+  #   username="%F{208}%n%f" # dark
+  username="%F{166}%n%f" # right
   prompt_sign='$'
 fi
 
 # 通过 SSH 连接时突出显示主机名
 if [[ "${SSH_TTY}" ]]; then
-  hostname="%F{196}%m%f"
+  hostname="%F{1}%m%f"
 else
-   hostname="%F{226}%m%f" # dark
-#  hostname="%F{208}%m%f" # light
+  #   hostname="%F{226}%m%f" # dark
+  hostname="%F{6}%m%f" # light
 fi
 
 # 默认交互式提示符
 # 注意：这里必须是单引号
 # shellcheck disable=SC2154
 # dark
- PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{4}%~%f ${vcs_info_msg_0_}
- %F{7}${prompt_sign}%f '
+#PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{4}%~%f ${vcs_info_msg_0_}
+#%F{7}${prompt_sign}%f '
 # light
-#PS1='${username} %F{000}at%f ${hostname} %F{000}in %F{039}%~%f ${vcs_info_msg_0_}
-#%F{000}${prompt_sign}%f '
+PS1='${username} %F{0}at%f ${hostname} %F{0}in %F{4}%~%f ${vcs_info_msg_0_}
+%F{0}${prompt_sign}%f '
 export PS1
 
 # 延续交互式提示符
-PS2="%F{226}→%f "
+#PS2="%F{7}→%f " # dark
+PS2="%F{0}→%f " # light
 export PS2
 
 ##
