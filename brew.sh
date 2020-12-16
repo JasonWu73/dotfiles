@@ -14,9 +14,8 @@ brew install node
 brew install yarn
 
 # Install MacOS Applications
-brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
-brew cask install adoptopenjdk11
+brew cask install intellij-idea
+brew cask install webstorm
 brew cask install google-chrome
 brew cask install firefox
 brew cask install macvim
