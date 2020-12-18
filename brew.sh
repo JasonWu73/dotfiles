@@ -16,6 +16,7 @@ brew install yarn
 # Install MacOS Applications
 brew cask install intellij-idea
 brew cask install webstorm
+brew cask install postman
 brew cask install google-chrome
 brew cask install firefox
 brew cask install macvim
