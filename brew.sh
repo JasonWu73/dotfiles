@@ -14,10 +14,10 @@ brew install node
 brew install yarn
 
 # Install MacOS Applications
-brew cask install intellij-idea
-brew cask install webstorm
-brew cask install postman
-brew cask install google-chrome
-brew cask install firefox
-brew cask install macvim
-brew cask install odlp/bluesnooze/bluesnooze
+brew install --cask intellij-idea
+brew install --cask webstorm
+brew install --cask postman
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask macvim
+brew install --cask odlp/bluesnooze/bluesnooze
