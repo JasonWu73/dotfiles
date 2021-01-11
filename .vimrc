@@ -91,6 +91,7 @@ set nowrap
 
 " 替换 `:set list` 显示的占位符
 set listchars=tab:→\ ,eol:↲
+set lcs+=space:·
 
 "##
 "# tab 与 空格
