@@ -21,9 +21,6 @@ alias cp="cp -vir"
 # 始终用过交互式移动文件，并显示详细信息
 alias mv="mv -vi"
 
-# 使用 `rmtrash` 命令行工具替代常规的 `rm`（仍可通过 `/bin/rm` 使用）
-alias rm="rmtrash"
-
 # 使用 MacVim 代替内置的 Vim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vimdiff='vim -d'
