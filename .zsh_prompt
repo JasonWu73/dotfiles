@@ -8,11 +8,11 @@
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 # 格式化通用输出
-#zstyle ':vcs_info:git:*' formats '%F{7}on%f %F{2}%b%f' # dark
-zstyle ':vcs_info:git:*' formats '%F{0}on%f %F{2}%b%f' # light
+zstyle ':vcs_info:git:*' formats '%F{7}on%f %F{2}%b%f' # dark
+#zstyle ':vcs_info:git:*' formats '%F{0}on%f %F{2}%b%f' # light
 # 格式化 merge 或 rebase 时输出
-#zstyle ':vcs_info:git*' actionformats '%F{7}on [%f%F{2}%b%f%F{7}|%f%F{1}%a%f%F{7}]%f' # dark
-zstyle ':vcs_info:git*' actionformats '%F{0}on [%f%F{2}%b%f%F{0}|%f%F{1}%a%f%F{0}]%f' # light
+zstyle ':vcs_info:git*' actionformats '%F{7}on [%f%F{2}%b%f%F{7}|%f%F{1}%a%f%F{7}]%f' # dark
+#zstyle ':vcs_info:git*' actionformats '%F{0}on [%f%F{2}%b%f%F{0}|%f%F{1}%a%f%F{0}]%f' # light
 
 # 挂钩函数，在每次终端提示前执行
 precmd() {
@@ -30,8 +30,8 @@ if [[ "${USER}" == "root" ]]; then
   username="%F{1}%n%f"
   prompt_sign='#'
 else
-  #username="%F{208}%n%f" # dark
-  username="%F{166}%n%f" # light
+  username="%F{208}%n%f" # dark
+  #username="%F{166}%n%f" # light
   prompt_sign='$'
 fi
 
@@ -39,24 +39,24 @@ fi
 if [[ "${SSH_TTY}" ]]; then
   hostname="%F{1}%m%f"
 else
-  #hostname="%F{226}%m%f" # dark
-  hostname="%F{6}%m%f"   # light
+  hostname="%F{226}%m%f" # dark
+  #hostname="%F{6}%m%f"   # light
 fi
 
 # 默认交互式提示符
 # 注意：这里必须是单引号
 # shellcheck disable=SC2154
 # dark
-#PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{4}%~%f ${vcs_info_msg_0_}
-#%F{7}${prompt_sign}%f '
+PS1='${username} %F{7}at%f ${hostname} %F{7}in %F{4}%~%f ${vcs_info_msg_0_}
+%F{7}${prompt_sign}%f '
 # light
-PS1='${username} %F{0}at%f ${hostname} %F{0}in %F{4}%~%f ${vcs_info_msg_0_}
-%F{0}${prompt_sign}%f '
+#PS1='${username} %F{0}at%f ${hostname} %F{0}in %F{4}%~%f ${vcs_info_msg_0_}
+#%F{0}${prompt_sign}%f '
 export PS1
 
 # 延续交互式提示符
-#PS2="%F{7}→%f " # dark
-PS2="%F{0}→%f " # light
+PS2="%F{7}→%f " # dark
+#PS2="%F{0}→%f " # light
 export PS2
 
 ##
