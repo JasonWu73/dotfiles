@@ -203,7 +203,7 @@ call plug#end()
 
 " vim-airline theme
 " light
-let g:airline_theme='light'
+"let g:airline_theme='light'
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
