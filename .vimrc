@@ -186,8 +186,8 @@ Plug 'junegunn/fzf.vim'
 " 自动将 vim 的工作目录切换到项目根目录
 Plug 'airblade/vim-rooter'
 
-" One Dark Theme
-Plug 'joshdick/onedark.vim'
+" Colorscheme
+Plug 'cormacrelf/vim-colors-github'
 
 " 语法支持
 Plug 'sheerun/vim-polyglot'
@@ -201,9 +201,16 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " 初始化插件系统
 call plug#end()
 
-" vim-airline theme
-" light
-"let g:airline_theme='light'
+" Theme
+" use a slightly darker background, like GitHub inline code blocks
+let g:github_colors_soft = 1
+" more blocky diff markers in signcolumn (e.g. GitGutter)
+let g:github_colors_block_diffmark = 0
+" in your .vimrc or init.vim
+colorscheme github
+" if you use airline / lightline
+let g:airline_theme = "github"
+let g:lightline = { 'colorscheme': 'github' }
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
