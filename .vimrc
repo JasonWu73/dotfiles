@@ -192,12 +192,6 @@ Plug 'cormacrelf/vim-colors-github'
 " 语法支持
 Plug 'sheerun/vim-polyglot'
 
-" Markdown 实时预览
-"   - `:InstantMarkdownPreview`：手动触发预览
-"   - `:InstantMarkdownStop`：停止预览
-" 需要全局安装 mini-server：`yarn global add instant-markdown-d`
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-
 " 初始化插件系统
 call plug#end()
 
@@ -236,10 +230,3 @@ nnoremap <C-e> :Buffers<CR>
 
 " 使用 `<leader>c` 搜索历史命令
 nnoremap <leader>c :History:<CR>
-
-"##
-"# vim-instant-markdown 配置
-"##
-
-" 选择自定义端口，而不是默认端口 8090
-let g:instant_markdown_port = 8888
