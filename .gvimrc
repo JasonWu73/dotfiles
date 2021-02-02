@@ -1,2 +1,2 @@
 " 字体和字号
-set guifont=Monaco:h15
+set guifont=Monaco:h16
