@@ -86,8 +86,10 @@ set wildmenu
 " 在 vim 中搜索打开文件或文件夹时不区分大小写
 set wildignorecase
 
-" 取消自动折行
-set nowrap
+" 自动折行，且保留完整单词
+set wrap
+set linebreak
+set nolist
 
 " 替换 `:set list` 显示的占位符
 set listchars=tab:→\ ,eol:↲
