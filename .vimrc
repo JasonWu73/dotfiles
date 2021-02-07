@@ -187,7 +187,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 " Colorscheme
-Plug 'cormacrelf/vim-colors-github'
+Plug 'morhetz/gruvbox'
 
 " 语法支持
 Plug 'sheerun/vim-polyglot'
@@ -196,15 +196,10 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Theme
-" use a slightly darker background, like GitHub inline code blocks
-let g:github_colors_soft = 1
-" more blocky diff markers in signcolumn (e.g. GitGutter)
-let g:github_colors_block_diffmark = 0
-" in your .vimrc or init.vim
-colorscheme github
-" if you use airline / lightline
-let g:airline_theme = "github"
-let g:lightline = { 'colorscheme': 'github' }
+set background=dark    " Setting dark mode
+"set background=light   " Setting light mode
+colorscheme gruvbox
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
