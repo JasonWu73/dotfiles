@@ -189,19 +189,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " 语法支持
 Plug 'sheerun/vim-polyglot'
 
 " 初始化插件系统
 call plug#end()
-
-" Theme
-set background=dark    " Setting dark mode
-"set background=light   " Setting light mode
-colorscheme gruvbox
-let g:lightline = { 'colorscheme': 'gruvbox' }
 
 " vim-rooter 配置，识别为根目录的目录特征
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'package.json', 'pom.xml', 'venv', '*.sh', '*.md']
