@@ -188,9 +188,6 @@ Plug 'junegunn/fzf.vim'
 " 自动将 vim 的工作目录切换到项目根目录
 Plug 'airblade/vim-rooter'
 
-" Colorscheme
-Plug 'drewtempelmeyer/palenight.vim'
-
 " 语法支持
 Plug 'sheerun/vim-polyglot'
 
