@@ -1,4 +1,5 @@
 " 字体和字号
 set guifont=Monaco:h14
 
-colorscheme nord
+set termguicolors
+colorscheme monokai_pro

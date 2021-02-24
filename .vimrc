@@ -161,7 +161,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'phanviet/vim-monokai-pro'
 
 " 自动封口括号等
 Plug 'jiangmiao/auto-pairs'
