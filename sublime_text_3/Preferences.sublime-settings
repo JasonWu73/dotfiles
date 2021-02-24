@@ -1,0 +1,40 @@
+{
+	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro.sublime-color-scheme",
+	"copy_with_empty_selection": false,
+	"default_line_ending": "unix",
+	"drag_text": false,
+	"draw_minimap_border": true,
+	"enable_tab_scrolling": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Monaco",
+	"font_options":
+	[
+		"no_round"
+	],
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"line_numbers": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"overlay_scroll_bars": "enabled",
+	"predawn_tabs_active_underline": true,
+	"predawn_tabs_medium": true,
+	"preview_on_click": false,
+	"scroll_past_end": true,
+	"show_definitions": false,
+	"show_encoding": true,
+	"show_errors_inline": false,
+	"show_full_path": false,
+	"tab_size": 2,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_ctrl_keys": true,
+	"vintage_lines.force_mode": true,
+	"vintage_start_in_command_mode": true,
+	"word_wrap": true
+}
