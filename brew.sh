@@ -11,6 +11,7 @@ brew install the_silver_searcher
 brew install bat
 brew install python
 brew install node
+brew install hey
 
 # Install MacOS Applications
 brew install --cask odlp/bluesnooze/bluesnooze
