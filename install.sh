@@ -25,6 +25,9 @@ for file in ${files}; do
   ln -sf "${dotfiles_dir}/${file}" "${home_dir}/${file}"
 done
 
+# pycodestyle
+ln -sf "${dotfiles_dir}/settings/pycodestyle" "${home_dir}/.config/pycodestyle"
+
 # 创建 `git_diff_wrapper` symlink 至 `$PATH`
 echo "Creating symlink to git_diff_wrapper in /usr/local/bin directory."
 ln -sf "${dotfiles_dir}/settings/git_diff_wrapper" /usr/local/bin/git_diff_wrapper
