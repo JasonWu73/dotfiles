@@ -30,7 +30,7 @@ if [[ "${USER}" == "root" ]]; then
   username="%F{1}%n%f"
   prompt_sign='#'
 else
-  username="%F{051}%n%f" # dark
+  username="%F{208}%n%f" # dark
 #  username="%F{166}%n%f" # light
   prompt_sign='$'
 fi
