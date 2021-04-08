@@ -30,7 +30,7 @@
 	"show_errors_inline": false,
 	"show_full_path": false,
 	"tab_size": 2,
-	"theme": "predawn.sublime-theme",
+	"theme": "predawn-DEV.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_ctrl_keys": true,
