@@ -41,20 +41,32 @@ fi
 if [[ "${SSH_TTY}" ]]; then
   hostStyle="${bold}${red}"
 else
-  hostStyle="${yellow}"
+#  hostStyle="${yellow}" # dark
+  hostStyle="${blue}" # light
 fi
 
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]"
 PS1+="\[${bold}\]\n"      # newline
 PS1+="\[${userStyle}\]\u" # username
-PS1+="\[${white}\] at "
+
+#PS1+="\[${white}\] at " # dark
+PS1+="\[${black}\] at " # light
+
 PS1+="\[${hostStyle}\]\h" # host
-PS1+="\[${white}\] in "
+
+#PS1+="\[${white}\] in " # dark
+PS1+="\[${black}\] in " # light
+
 PS1+="\[${green}\]\W" # working directory
 PS1+="\n"
-PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color)
+
+#PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color) # dark
+PS1+="\[${black}\]\$ \[${reset}\]" # `$` (and reset color) # light
+
 export PS1
 
-PS2="\[${yellow}\]→ \[${reset}\]"
+#PS2="\[${yellow}\]→ \[${reset}\]" # dark
+PS2="\[${black}\]→ \[${reset}\]" # light
+
 export PS2

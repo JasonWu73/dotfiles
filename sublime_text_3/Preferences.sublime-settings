@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Predawn/predawn.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Celeste.sublime-color-scheme",
 	"copy_with_empty_selection": false,
 	"default_line_ending": "unix",
 	"drag_text": false,
@@ -30,7 +30,7 @@
 	"show_errors_inline": false,
 	"show_full_path": false,
 	"tab_size": 2,
-	"theme": "predawn-DEV.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_ctrl_keys": true,
