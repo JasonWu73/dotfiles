@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"Alabaster Color Scheme",
 		"All Autocomplete",
 		"BracketHighlighter",
 		"Codecs33",
@@ -14,6 +13,7 @@
 		"Emmet",
 		"MarkdownPreview",
 		"Package Control",
+		"Predawn",
 		"VintageLines"
 	]
 }
