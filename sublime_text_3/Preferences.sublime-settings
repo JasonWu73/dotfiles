@@ -35,6 +35,7 @@
 	"trim_trailing_white_space_on_save": true,
 	"vintage_ctrl_keys": true,
 	"vintage_lines.force_mode": true,
+	"save_on_focus_lost": true,
 	"vintage_start_in_command_mode": true,
 	"word_wrap": true
 }
