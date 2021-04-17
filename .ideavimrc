@@ -3,3 +3,5 @@ source ~/.vimrc
 
 " 在 IDE 中启用合并行功能
 set ideajoin
+
+set clipboard+=ideaput
