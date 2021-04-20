@@ -1,10 +1,10 @@
 <scheme name="MyDarcula" version="142" parent_scheme="Darcula">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2021-04-20T10:07:30</property>
+    <property name="created">2021-04-20T10:36:56</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2021.1.0.0</property>
-    <property name="modified">2021-04-20T10:07:37</property>
+    <property name="modified">2021-04-20T10:37:07</property>
     <property name="originalScheme">MyDarcula</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.2" />
@@ -434,7 +434,6 @@
         <option name="EFFECT_TYPE" value="1" />
       </value>
     </option>
-    <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER" />
     <option name="HAML_RUBY_CODE" baseAttributes="INJECTED_LANGUAGE_FRAGMENT" />
     <option name="HTML_ATTRIBUTE_NAME" baseAttributes="DEFAULT_ATTRIBUTE" />
     <option name="HTML_ATTRIBUTE_VALUE" baseAttributes="DEFAULT_STRING" />
@@ -494,7 +493,6 @@
       </value>
     </option>
     <option name="JSP_DIRECTIVE_NAME" baseAttributes="DEFAULT_KEYWORD" />
-    <option name="KOTLIN_LABEL" baseAttributes="DEFAULT_LABEL" />
     <option name="KOTLIN_NAMED_ARGUMENT">
       <value>
         <option name="FOREGROUND" value="fcb484" />
@@ -506,7 +504,6 @@
     <option name="KOTLIN_SMART_CONSTANT">
       <value />
     </option>
-    <option name="KOTLIN_TYPE_PARAMETER" baseAttributes="TYPE_PARAMETER_NAME_ATTRIBUTES" />
     <option name="LESS_VARIABLE" baseAttributes="DEFAULT_INSTANCE_FIELD" />
     <option name="LINE_FULL_COVERAGE">
       <value>
@@ -595,11 +592,21 @@
     <option name="OC.MACRONAME">
       <value />
     </option>
+    <option name="OC.OVERLOADED_OPERATOR">
+      <value>
+        <option name="FOREGROUND" value="fcb484" />
+      </value>
+    </option>
     <option name="OC.STRUCT_FIELD">
       <value />
     </option>
     <option name="OC.STRUCT_LIKE">
       <value />
+    </option>
+    <option name="OC.TYPEDEF">
+      <value>
+        <option name="FOREGROUND" value="8acccf" />
+      </value>
     </option>
     <option name="PROPERTIES.INVALID_STRING_ESCAPE">
       <value>
@@ -660,8 +667,7 @@
     </option>
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="e59a7d" />
-        <option name="ERROR_STRIPE_COLOR" value="e09d81" />
+        <option name="BACKGROUND" value="23272d" />
       </value>
     </option>
     <option name="SPY-JS.EXCEPTION">
@@ -694,8 +700,8 @@
         <option name="FOREGROUND" value="fcb484" />
       </value>
     </option>
+    <option name="STATIC_METHOD_ATTRIBUTES" baseAttributes="DEFAULT_STATIC_METHOD" />
     <option name="Static method access" baseAttributes="STATIC_METHOD_ATTRIBUTES" />
-    <option name="Static property reference ID" baseAttributes="STATIC_FINAL_FIELD_ATTRIBUTES" />
     <option name="TEMPLATE_VARIABLE_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="f6f3e8" />
@@ -748,8 +754,8 @@
     </option>
     <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="f18260" />
-        <option name="ERROR_STRIPE_COLOR" value="ec8a6a" />
+        <option name="BACKGROUND" value="23272d" />
+        <option name="EFFECT_COLOR" value="f18260" />
       </value>
     </option>
     <option name="WRONG_REFERENCES_ATTRIBUTES">
