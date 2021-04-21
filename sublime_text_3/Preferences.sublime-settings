@@ -18,8 +18,8 @@
 	[
 	],
 	"line_numbers": true,
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
 	"overlay_scroll_bars": "enabled",
 	"predawn_tabs_active_underline": true,
 	"predawn_tabs_medium": true,
