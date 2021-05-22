@@ -33,8 +33,10 @@ fi
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
   userStyle="${red}"
+  promptSign="#"
 else
   userStyle="${orange}"
+  promptSign="$"
 fi
 
 # Highlight the hostname when connected via SSH.
@@ -61,8 +63,8 @@ PS1+="\[${white}\] in " # dark
 PS1+="\[${green}\]\W" # working directory
 PS1+="\n"
 
-PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color) # dark
-#PS1+="\[${black}\]\$ \[${reset}\]" # `$` (and reset color) # light
+PS1+="\[${white}\]\${promptSign} \[${reset}\]" # `$` (and reset color) # dark
+#PS1+="\[${black}\]\${promptSign} \[${reset}\]" # `$` (and reset color) # light
 
 export PS1
 
