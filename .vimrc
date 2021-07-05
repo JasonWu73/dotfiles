@@ -164,27 +164,6 @@ Plug 'vim-airline/vim-airline-themes'
 " 自动封口括号等
 Plug 'jiangmiao/auto-pairs'
 
-"##
-"# 模糊搜索
-"##
-
-" `fzf` 命令工具
-" `brew install fzf`
-" `$(brew --prefix)/opt/fzf/install`
-
-" 提供预览窗口的语法高亮
-" `brew install bat`
-
-" `:Rg` 需要 ripgrep (rg)
-" `brew install ripgrep`
-
-" `:Ag` 需要 The Silver Searcher (ag)
-" `brew install the_silver_searcher`
-
-" `:Tags` 和 `:Helptags` 需要 Perl
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 " 自动将 vim 的工作目录切换到项目根目录
 Plug 'airblade/vim-rooter'
 

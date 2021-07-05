@@ -25,51 +25,16 @@ if [[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
 fi
 
 ##
-# 模糊搜索命令行工具
-##
-
-# fzf
-# `brew install fzf`
-# 安装有用的快捷键绑定和模糊补全
-# `$(brew --prefix)/opt/fzf/install`
-
-# 替代 `find` 命令的工具 `fd`
-# `brew install fd`
-
-# 使用正则模式的目录递归搜索工具 `rg`，遵循 `.gitignore`
-# `brew install ripgrep`
-
-# 代码搜索工具 `ag`，遵循 `.gitignore`
-# `brew install the_silver_searcher`
-
-# 语法高亮工具 `bat`
-# `brew install bat`
-
-# fzf 展示效果
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
-# 执行 `$(brew --prefix)/opt/fzf/install` 时自动生成的代码
-# 该行需要放置在后续 fzf 配置之前
-# shellcheck disable=SC1090
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# 配置在 MacOS 中使用 `option-c` 替换为默认的 `alt-c`
-bindkey "¸" fzf-cd-widget
-
-# 覆盖终端下 `fzf` 默认命令
-# 设置 `fd` 为 `fzf` 的默认源
-# 命令跟随符号链接，不排除隐藏文件，遵循 `.gitignore`
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
-# 将替换后的 `fzf` 默认命令应用到 `ctrl-t`
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-##
 # 设置环境变量
 ##
 
 # 中科大源 - Homebrew 预编译二进制软件包
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
+# 终端代理
+export https_proxy=http://127.0.0.1:7890
+export http_proxy=http://127.0.0.1:7890
+export all_proxy=socks5://127.0.0.1:7890
 
 # Switch between different JDK versions
 jdk() {

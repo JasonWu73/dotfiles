@@ -9,8 +9,9 @@ alias clean='/bin/rm -rf ~/.Trash/*; /bin/rm -rf ~/Downloads/*'
 alias wipe_py_env='/bin/rm -rf ~/py_env; python3 -m venv ~/py_env'
 
 # 始终启用带颜色的 `ls` 输出
-alias ls="ls -tGF"
-alias la="ls -haltT"
+alias ls="ls -GF"
+alias ll="ls -ltrhTGF"
+alias la="ll -a"
 
 # 始终启用带颜色的 `grep` 输出
 alias grep='grep --color=auto'
