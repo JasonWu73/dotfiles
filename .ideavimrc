@@ -1,7 +1,8 @@
 " 读取 vim 配置
 source ~/.vimrc
 
-" 在 IDE 中启用合并行功能
+" 在 JetBrains IDE 中启用合并行功能
 set ideajoin
 
-set clipboard+=ideaput
+" 使 JetBrains IDE 共享系统剪贴板
+" set clipboard+=ideaput
