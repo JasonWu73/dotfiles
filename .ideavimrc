@@ -3,6 +3,3 @@ source ~/.vimrc
 
 " 在 JetBrains IDE 中启用合并行功能
 set ideajoin
-
-" 使 JetBrains IDE 共享系统剪贴板
-" set clipboard+=ideaput
